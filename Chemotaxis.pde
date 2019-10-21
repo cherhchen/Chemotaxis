@@ -3,7 +3,6 @@ Bacteria bob;
 void setup()   
  {      
  	size(300,300);
- 	background(0);
  	colony = new Bacteria[100];
  	for (int i = 0; i < colony.length; i++) {
  		colony[i] = new Bacteria();
@@ -11,7 +10,7 @@ void setup()
  }   
  void draw()   
  {  
- 	background(0); 
+ 	background(255); 
  	for (int i =0; i < colony.length; i++) {
  		colony[i].move();
  		colony[i].show();
@@ -25,25 +24,25 @@ void setup()
  	{
  		myX = 150;
  		myY = 150;
- 		myColor = color((int)(Math.random()*255)+1, (int)(Math.random()*255)+1, (int)(Math.random()*255)+1);
+ 		myColor = color(21, 232, 71);
  	} 
  	void move()
  	{
  		int speedX = (int)(Math.random()*5)-2;
  		int speedY = (int)(Math.random()*5)-2;
- 		if (mouseX>200 && mouseY>200 && speedY>0 && speedX>0) {
+ 		if (mouseX>180 && mouseY>180 && speedY>0 && speedX>0) {
  			myX = myX + speedX*2;
  			myY = myY + speedY*2;
  		}
- 		else if (mouseX>200 && mouseY<100 && speedY>0 && speedX>0) {
+ 		else if (mouseX>180 && mouseY<120 && speedY>0 && speedX>0) {
  			myX = myX + speedX*2;
  			myY = myY - speedY*2;
  		}
- 		else if (mouseX<100 && mouseY<100 && speedY>0 && speedX>0) {
+ 		else if (mouseX<120 && mouseY<120 && speedY>0 && speedX>0) {
  			myX = myX - speedX*2;
  			myY = myY - speedY*2;
  		}
- 		else if (mouseX<100 && mouseY>200 && speedY>0 && speedX>0) {
+ 		else if (mouseX<120 && mouseY>180 && speedY>0 && speedX>0) {
  			myX = myX - speedX*2;
  			myY = myY + speedY*2;
  		}
@@ -54,6 +53,7 @@ void setup()
  	}
  	void show()
  	{
+ 		noStroke();
  		fill(myColor);
  		ellipse(myX, myY, 7, 7);
  	}
