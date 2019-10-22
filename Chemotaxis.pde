@@ -2,7 +2,7 @@ Bacteria [] colony;
 Bacteria bob;
 void setup()   
  {      
- 	size(300,300);
+ 	size(310,310);
  	colony = new Bacteria[100];
  	for (int i = 0; i < colony.length; i++) {
  		colony[i] = new Bacteria();
@@ -10,12 +10,21 @@ void setup()
  }   
  void draw()   
  {  
- 	background(255); 
+ 	background(168); 
+ 	fill(255);
+ 	ellipse(155,155,300,300);
+
+ 	fill(168, 242, 82,100);
+ 	ellipse(100,100,80,40);
+ 	fill(173, 168, 95,100);
+ 	ellipse(100,100,60,30);
+ 	rect(140,100,30,3,5);
+
  	for (int i =0; i < colony.length; i++) {
  		colony[i].move();
  		colony[i].show();
 	}
- 	//move and show the bacteria   
+
  }  
  class Bacteria    
  {     
@@ -24,13 +33,13 @@ void setup()
  	{
  		myX = 150;
  		myY = 150;
- 		myColor = color(21, 232, 71);
+ 		myColor = color(168, 168, 168,180);
  	} 
  	void move()
  	{
  		int speedX = (int)(Math.random()*5)-2;
  		int speedY = (int)(Math.random()*5)-2;
- 		if (mouseX>180 && mouseY>180 && speedY>0 && speedX>0) {
+ 		if (mouseX>150 && mouseY>150 && speedY>0 && speedX>0) {
  			myX = myX + speedX*2;
  			myY = myY + speedY*2;
  		}
@@ -55,6 +64,6 @@ void setup()
  	{
  		noStroke();
  		fill(myColor);
- 		ellipse(myX, myY, 7, 7);
+ 		ellipse(myX, myY, 9, 5);
  	}
  }    
